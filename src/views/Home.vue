@@ -42,8 +42,6 @@
 
     <input v-model.number="max" type="range" class="form-range" min="0" max="130" />
 
-    <custom-alert type="danger" close="true" v-if="cartTotal > 100"> </custom-alert>
-
     <transition-group name="products" appear>
       <div
         v-for="item in filteredProducts"
@@ -59,7 +57,6 @@
 
 <script>
 import Curr from '@/components/Curr.vue'
-import CustomAlert from '@/components/CustomAlert.vue'
 import Product from '@/components/Product.vue'
 
 export default {
@@ -75,7 +72,6 @@ export default {
   },
   components: {
     Curr,
-    CustomAlert,
     Product
   },
   created() {
