@@ -1,6 +1,8 @@
 <template>
   <div class="col-2 m-auto">
-    <button @click="$emit('addToCart', item)" class="btn btn-success">+</button>
+    <button @click="this.$parent.$parent.$emit('addToCart', item)" class="btn btn-success">
+      +
+    </button>
   </div>
   <div class="col-sm-4">
     <img class="img-fluid d-block" :src="item.image" :alt="item.name" />

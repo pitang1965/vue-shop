@@ -1,51 +1,49 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'</script>
-
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/checkout">Checkout</RouterLink>
-      </nav>
-    </div>
-  </header>
-
+  <navbar :cart="cart" />
   <div class="container">
-    <router-view />
+    <router-view :cart="cart" @addToCart="addToCart" />
   </div>
 </template>
 
+<script>
+import Navbar from '@/components/Navbar.vue'
+
+export default {
+  data: function () {
+    return {
+      cart: [],
+      displayCart: false
+    }
+  },
+  components: {
+    Navbar
+  },
+  methods: {
+    addToCart(product) {
+      this.cart.push(product)
+      if (this.cartTotal >= 100) {
+        this.salesBtn = 'btn-danger'
+      }
+    }
+  }
+}
+</script>
+
 <style lang="scss">
 @import 'node_modules/bootstrap/scss/bootstrap';
-.dropdown-clip {
-    overflow: hidden;
-  }
 
-  .dropdown-enter-active,
-  .dropdown-leave-active {
-    transition: all .5s ease-in-out;
-    transform: auto;
-  }
+.products-enter-active,
+.products-leave-active {
+  transition: all 0.5s ease-in-out;
+}
 
-  .dropdown-enter-from, 
-  .dropdown-leave-to {
-    opacity: 0;
-    transform:translateY(-300px);
-  }
+.products-enter-from {
+  opacity: 0;
+  transform: translateX(300px);
+}
 
-  .products-enter-active,
-  .products-leave-active {
-    transition: all .5s ease-in-out;
-  }
-
-  .products-enter-from {
-    opacity: 0;
-    transform:translateX(300px);
-  }
-  
-  .products-leave-to {
-    opacity: 0;
-    transform:translateX(-300px);
-  }
+.products-leave-to {
+  opacity: 0;
+  transform: translateX(-300px);
+}
 </style>
