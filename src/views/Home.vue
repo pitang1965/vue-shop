@@ -1,10 +1,6 @@
 <template>
   <section class="container">
-    <label for="max-price" class="form-label h2">Max Price (${{ max }})</label>
-    <div class="badge bg-success ml-3">results: {{ filteredProducts.length }}</div>
-
-    <input v-model.number="max" type="range" class="form-range" min="0" max="130" />
-
+    <range-selector :products = "filteredProducts" v-model="max" />
     <transition-group name="products" appear>
       <div
         v-for="item in filteredProducts"
@@ -20,6 +16,7 @@
 
 <script>
 import Product from '@/components/Product.vue'
+import RangeSelector from '@/components/RangeSelector.vue'
 
 export default {
   name: 'Home',
@@ -33,7 +30,8 @@ export default {
     }
   },
   components: {
-    Product
+    Product,
+    RangeSelector
   },
   created() {
     fetch('https://hplussport.com/api/products/order/price')
@@ -44,7 +42,7 @@ export default {
   },
   computed: {
     filteredProducts() {
-      return this.products.filter(item => item.price < this.max)
+      return this.products.filter(item => item.price < Number(this.max))
     },
   },
 }
