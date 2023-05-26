@@ -25,7 +25,6 @@ export default {
     return {
       max: 50,
       cart: [],
-      displayCart: false,
       products: []
     }
   },
