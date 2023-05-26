@@ -15,21 +15,14 @@ export default {
   data: function () {
     return {
       max: 50,
-      cart: [],
-      products: []
+      cart: []
     }
   },
   components: {
     ProductList,
     RangeSelector
   },
-  created() {
-    fetch('https://hplussport.com/api/products/order/price')
-      .then(response => response.json())
-      .then(data => {
-        this.products = data
-      })
-  },
+  props: ['products'],
   computed: {
     filteredProducts() {
       return this.products.filter(item => item.price < Number(this.max))
