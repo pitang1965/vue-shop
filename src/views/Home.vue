@@ -1,21 +1,12 @@
 <template>
   <section class="container">
     <range-selector :products = "filteredProducts" v-model="max" />
-    <transition-group name="products" appear>
-      <div
-        v-for="item in filteredProducts"
-        :key="item.id"
-        id="item-list"
-        class="row align-items-center"
-      >
-        <product :item="item" @add-to-cart="addToCart"></product>
-      </div>
-    </transition-group>
+    <product-list :products = "filteredProducts" />
   </section>
 </template>
 
 <script>
-import Product from '@/components/Product.vue'
+import ProductList from '@/components/ProductList.vue'
 import RangeSelector from '@/components/RangeSelector.vue'
 
 export default {
@@ -29,7 +20,7 @@ export default {
     }
   },
   components: {
-    Product,
+    ProductList,
     RangeSelector
   },
   created() {
