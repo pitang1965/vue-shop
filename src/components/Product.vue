@@ -15,8 +15,12 @@
 </template>
 
 <script>
+import Curr from '@/components/Curr.vue'
 export default {
   props: ['item'],
-  emits: ['addToCart']
+  emits: ['addToCart'],
+  components: {
+    Curr
+  }
 }
 </script>
