@@ -1,7 +1,13 @@
 <template>
   <navbar :cart="cart" :cart-total="cartTotal" :cart-qty="cartQty" @delete-item="deleteItem" />
   <div class="container">
-    <router-view :products="products" :cart="cart" @addItem="addItem" @delete-item="deleteItem"/>
+    <router-view
+      :products="products"
+      :cart="cart"
+      @addItem="addItem"
+      @delete-item="deleteItem"
+      :cart-total="cartTotal"
+    />
   </div>
 </template>
 
@@ -44,7 +50,7 @@ export default {
         this.cart.push({ product: product, qty: 1 })
       }
     },
-    deleteItem: function(id) {
+    deleteItem: function (id) {
       console.log('deleteItem!')
       if (this.cart[id].qty > 1) {
         this.cart[id].qty--
