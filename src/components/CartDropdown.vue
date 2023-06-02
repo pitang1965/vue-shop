@@ -12,7 +12,7 @@
             <button @click.stop="this.$parent.$emit('deleteItem', index)" class="btn btn-sm btn-danger ml-2">-</button>
           </div>
         </div>
-        <router-link to="/checkout" class="btn btn-sm btn-success text-white float-right mr-2 mt-2">checkout</router-link>
+        <router-link to="/checkout" class="btn btn-sm btn-success text-white float-right mr-2 mt-2">カートを見る</router-link>
       </div>
     </transition>
   </div>

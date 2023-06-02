@@ -1,6 +1,6 @@
 <template>
-  <label for="max-price" class="form-label h2">Max Price (${{ modelValue }})</label>
-  <div class="badge bg-success ml-3">results: {{ products.length }}</div>
+  <label for="max-price" class="form-label h2">最大金額 (${{ modelValue }})</label>
+  <div class="badge bg-success ml-3">検索結果: {{ products.length }}</div>
 
   <input
     type="range"

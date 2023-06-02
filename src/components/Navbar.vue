@@ -2,8 +2,8 @@
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/checkout">Checkout</RouterLink>
+        <RouterLink to="/">ホーム</RouterLink>
+        <RouterLink to="/checkout">カート</RouterLink>
       </nav>
     </div>
   </header>

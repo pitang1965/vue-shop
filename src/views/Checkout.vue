@@ -1,19 +1,19 @@
 <template>
   <div class="container">
-    <h1>Checkout</h1>
+    <h1>カート</h1>
 
     <table class="table table-hover">
       <caption class="text-right h3">
-        <b>Total:</b>
+        <b>合計:</b>
         <curr :amt="Number(cartTotal)"></curr>
       </caption>
       <thead>
         <tr>
           <th scope="col"></th>
-          <th scope="col">Item</th>
-          <th scope="col" class="text-center">Qty</th>
-          <th scope="col" class="text-right">Price</th>
-          <th scope="col" class="text-right">Sub-total</th>
+          <th scope="col">品名</th>
+          <th scope="col" class="text-center">数量</th>
+          <th scope="col" class="text-right">価格</th>
+          <th scope="col" class="text-right">小計</th>
         </tr>
       </thead>
       <tbody>
@@ -35,7 +35,7 @@
         </tr>
       </tbody>
     </table>
-    <router-link class="btn btn-sm btn-success" to="/">Keep Shopping</router-link>
+    <router-link class="btn btn-sm btn-success" to="/">買い物を続ける</router-link>
   </div>
 </template>
 
