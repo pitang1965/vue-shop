@@ -1,3 +1,4 @@
+<!-- TODO: bootstrapをTailwind CSSに変更する -->
 <template>
   <div class="container">
     <h1>カート</h1>

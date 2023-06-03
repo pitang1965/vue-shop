@@ -1,13 +1,16 @@
+<!-- TODO: bootstrapをTailwind CSSに変更する -->
+
 <template>
   <header>
-    <div class="wrapper">
-      <nav>
+    <div class="container mx-auto px-4">
+      <nav class="flex m-2 gap-2">
         <RouterLink to="/">ホーム</RouterLink>
         <RouterLink to="/checkout">カート</RouterLink>
       </nav>
     </div>
   </header>
   <nav class="navbar navbar-light sticky-top mr-3">
+  <!-- <nav class=""> -->
     <div
       v-if="cart.length"
       class="w-100 navbar-text ml-auto d-flex justify-content-end position-relative"

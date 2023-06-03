@@ -1,7 +1,6 @@
 <template>
   <navbar :cart="cart" :cart-total="cartTotal" :cart-qty="cartQty" @delete-item="deleteItem" />
   <div class="container">
-    <h1 class="text-3xl font-bold underline">test</h1>
     <router-view
       :products="products"
       :cart="cart"

@@ -1,10 +1,9 @@
 <template>
-  <label for="max-price" class="form-label h2">最大金額 (${{ modelValue }})</label>
-  <div class="badge bg-success ml-3">検索結果: {{ products.length }}</div>
-
+  <label for="max-price" class="text-2xl">最大金額 (${{ modelValue }})</label>
+  <label class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ml-2">検索結果: {{ products.length }}</label>
   <input
     type="range"
-    class="form-range"
+    class="w-full"
     min="0"
     max="130"
     :value="modelValue"

@@ -4,7 +4,6 @@
       v-for="item in products"
       :key="item.id"
       id="item-list"
-      class="row align-items-center"
     >
       <product :item="item" />
     </div>

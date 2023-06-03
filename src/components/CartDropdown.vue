@@ -1,5 +1,6 @@
 <template>
   <div class="dropdown-clip">
+  <!-- <div class=""> -->
     <transition name="dropdown">
       <div v-if="displayCart" class="list-group bg-white" aria-labelledby="cartDropdown">
         <div v-for="(item, index) in cart" :key="index">
