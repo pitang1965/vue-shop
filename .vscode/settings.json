@@ -4,5 +4,10 @@
   "vetur.validation.template": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "cSpell.words": [
+    "fontawesome",
+    "fortawesome",
+    "rushstack"
+  ]
 }
