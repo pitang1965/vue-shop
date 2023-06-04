@@ -3,13 +3,14 @@
   <div class="container">
     <h1>カート</h1>
 
-    <table class="table table-hover">
+    <!-- <table class="table"> -->
+    <table class="table-auto">
       <caption class="text-right h3">
         <b>合計:</b>
         <curr :amt="Number(cartTotal)"></curr>
       </caption>
       <thead>
-        <tr>
+        <tr class="border-b-2 border-slate-200">
           <th scope="col"></th>
           <th scope="col">品名</th>
           <th scope="col" class="text-center">数量</th>
@@ -18,18 +19,18 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in cart" :key="item.product.id">
-          <td class="text-center">
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <button @click="this.$emit('addItem', item.product)" class="btn btn-success">
+        <tr v-for="(item, index) in cart" :key="item.product.id" class="border-b-2 border-slate-200 hover:bg-slate-300">
+          <td class="p-2">
+            <div class="flex" role="group" aria-label="Basic example">
+              <button @click="this.$emit('addItem', item.product)" class="px-2 py-2 bg-purple-500 text-white hover:bg-purple-600">
                 +
               </button>
-              <button @click="this.$emit('deleteItem', index)" class="btn btn-outline-success">
+              <button @click="this.$emit('deleteItem', index)" class="px-2 py-2 hover:bg-purple-500 hover:text-white">
                 -
               </button>
             </div>
           </td>
-          <th scope="row">{{ item.product.name }}</th>
+          <td scope="row">{{ item.product.name }}</td>
           <td class="text-center">{{ item.qty }}</td>
           <td class="text-right"><curr :amt="Number(item.product.price)"></curr></td>
           <td class="text-right"><curr :amt="item.qty * Number(item.product.price)"></curr></td>

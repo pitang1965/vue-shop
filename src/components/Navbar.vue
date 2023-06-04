@@ -1,5 +1,3 @@
-<!-- TODO: bootstrapをTailwind CSSに変更する -->
-
 <template>
   <header>
     <div class="container mx-auto px-4">
@@ -9,29 +7,20 @@
       </nav>
     </div>
   </header>
-  <nav class="navbar navbar-light sticky-top mr-3">
-  <!-- <nav class=""> -->
-    <div
-      v-if="cart.length"
-      class="w-100 navbar-text ml-auto d-flex justify-content-end position-relative"
-    >
-      <div class="mr-auto d-flex align-items-end flex-column bd-highlight mb-3 position-absolute">
-        <div class="mb-2">
-          <span class="font-weight-bold bg-white"><curr :amt="cartTotal"></curr></span>
-          <button
-            @click="toggleDisplayCart"
-            class="btn btn-sm btn-success ml-3"
-            id="cartDropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <fa icon="shopping-cart" />
-            {{ cartQty }}
-          </button>
-        </div>
-        <cart-dropdown :cart="cart" :displayCart="displayCart" />
-      </div>
-
+  <nav class="sticky top-0">
+    <div v-if="cart.length" class="flex justify-end p-2">
+      <span class="font-bold bg-white"><curr :amt="cartTotal"></curr></span>
+      <button
+        @click="toggleDisplayCart"
+        class="bg-purple-500 hover:bg-purple-600 text-white font-bold px-2.5 py-0.5 rounded ml-3"
+        id="cartDropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <fa icon="shopping-cart" />
+        {{ cartQty }}
+      </button>
+      <cart-dropdown :cart="cart" :displayCart="displayCart" />
     </div>
   </nav>
 </template>
@@ -52,7 +41,7 @@ export default {
   },
   props: ['cart', 'cartTotal', 'cartQty'],
   methods: {
-    toggleDisplayCart () {
+    toggleDisplayCart() {
       this.displayCart = !this.displayCart
     }
   }
