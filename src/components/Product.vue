@@ -3,7 +3,7 @@
     <div class="col-span-2 m-auto">
       <button
         @click="this.$parent.$parent.$parent.$emit('addItem', item)"
-        class="bg-purple-500 hover:bg-purple-600 text-white font-bold w-10 h-10 rounded"
+        class="bg-purple-500 hover:bg-purple-600 text-white text-sm font-bold w-8 h-8 rounded"
       >
         +
       </button>
@@ -12,7 +12,7 @@
       <img class="object-fill" :src="item.image" :alt="item.name" />
     </div>
     <div class="col-span-6 my-auto">
-      <h3 class="text-purple-500">{{ item.name }}</h3>
+      <h3 class="text-2xl text-purple-500">{{ item.name }}</h3>
       <p>{{ item.description }}</p>
       <div class="text-xl float-right"><span class="label"></span><curr :amt="item.price"></curr></div>
     </div>

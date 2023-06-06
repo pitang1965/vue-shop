@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="container mx-auto px-2">
     <range-selector :products = "filteredProducts" v-model="max" />
     <product-list :products = "filteredProducts" />
   </section>

@@ -1,17 +1,16 @@
-<!-- TODO: bootstrapをTailwind CSSに変更する -->
 <template>
-  <div class="container">
+  <div class="container mx-auto px-2">
     <h1>カート</h1>
 
-    <table class="table-auto w-full">
-      <caption class="text-right h3">
+    <table class="table-auto w-full text-sm mb-8">
+      <caption class="text-right h3 mb-4">
         <b>合計:</b>
         <curr :amt="Number(cartTotal)"></curr>
       </caption>
       <thead>
         <tr class="border-b-2 border-slate-200">
           <th scope="col"></th>
-          <th scope="col">品名</th>
+          <th scope="col" class="text-left">品名</th>
           <th scope="col" class="text-center w-30">数量</th>
           <th scope="col" class="text-right">価格</th>
           <th scope="col" class="text-right">小計</th>
@@ -36,7 +35,7 @@
         </tr>
       </tbody>
     </table>
-    <router-link class="px-2 py-2 bg-purple-500 text-white hover:bg-purple-600 rounded-lg no-underline" to="/">買い物を続ける</router-link>
+    <router-link class="px-2 py-2 bg-purple-500 text-sm text-white hover:bg-purple-600 rounded-md no-underline" to="/">買い物を続ける</router-link>
   </div>
 </template>
 
