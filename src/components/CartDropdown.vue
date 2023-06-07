@@ -40,7 +40,7 @@ const emits = defineEmits(['deleteItem'])
 </script>
 
 <style>
-> .dropdown-enter-active,
+.dropdown-enter-active,
 .dropdown-leave-active {
   transition: all 0.5s ease-in-out;
   transform: auto;
