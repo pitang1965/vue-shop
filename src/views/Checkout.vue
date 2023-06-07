@@ -25,13 +25,13 @@
           <td class="p-2">
             <div class="flex" role="group" aria-label="Basic example">
               <button
-                @click="this.$emit('addItem', item.product)"
+                @click="$emit('addItem', item.product)"
                 class="px-2 py-2 bg-slate-200 text-black hover:bg-slate-400 border-2 border-slate-300 rounded-l-lg"
               >
                 +
               </button>
               <button
-                @click="this.$emit('deleteItem', index)"
+                @click="$emit('deleteItem', index)"
                 class="px-2 py-2 bg-slate-200 text-black hover:bg-slate-400 border-2 border-slate-300 rounded-r-lg"
               >
                 -

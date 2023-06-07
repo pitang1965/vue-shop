@@ -2,7 +2,7 @@
   <div class="grid grid-cols-12">
     <div class="col-span-2 m-auto">
       <button
-        @click="this.$parent.$parent.$parent.$emit('addItem', item)"
+        @click="$parent.$parent.$parent.$emit('addItem', item)"
         class="bg-purple-500 hover:bg-purple-600 text-white text-sm font-bold w-8 h-8 rounded"
       >
         +
@@ -26,5 +26,5 @@ import { defineProps, defineEmits } from 'vue'
 import Curr from '@/components/Curr.vue'
 
 const props = defineProps(['item'])
-const emits = defineEmits(['addToCart'])
+const emits = defineEmits(['addItem'])
 </script>
