@@ -1,8 +1,8 @@
 <template>
   <div class="container mx-auto px-2">
-    <h1>カート</h1>
-
-    <table class="table-auto w-full text-sm mb-8">
+    <h1 class="font-bold">カート</h1>
+    <div v-if="cart.length === 0" class="mb-2">何もありません。</div>
+    <table v-if="cart.length > 0" class="table-auto w-full text-sm mb-8">
       <caption class="text-right h3 mb-4">
         <b>合計:</b>
         <curr :amt="Number(cartTotal)"></curr>
