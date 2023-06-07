@@ -1,24 +1,16 @@
 <template>
   <transition-group name="products" appear>
-    <div
-      v-for="item in products"
-      :key="item.id"
-      id="item-list"
-    >
+    <div v-for="item in products" :key="item.id" id="item-list">
       <product :item="item" />
     </div>
   </transition-group>
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue'
 import Product from '@/components/Product.vue'
 
-export default {
-  props: ['products'],
-  components: {
-    Product
-  }
-}
+const props = defineProps(['products'])
 </script>
 
 <style>

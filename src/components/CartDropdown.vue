@@ -15,13 +15,15 @@
             <b> <curr :amt="item.qty * Number(item.product.price)"></curr></b>
             <button
               @click.stop="this.$parent.$emit('deleteItem', index)"
-              class="bg-[#ff0000] hover:bg-[#ee0000] text-white font-bold w-5 h-5 ml-2 rounded "
+              class="bg-[#ff0000] hover:bg-[#ee0000] text-white font-bold w-5 h-5 ml-2 rounded"
             >
               -
             </button>
           </div>
         </div>
-        <router-link to="/checkout" class="self-end bg-purple-500 hover:bg-purple-600 text-white font-bold mt-1 px-2.5 py-0.5 no-underline rounded-md"
+        <router-link
+          to="/checkout"
+          class="self-end bg-purple-500 hover:bg-purple-600 text-white font-bold mt-1 px-2.5 py-0.5 no-underline rounded-md"
           >カートを見る</router-link
         >
       </div>
@@ -29,21 +31,16 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { defineEmits, defineProps } from 'vue'
 import Curr from '@/components/Curr.vue'
 
-export default {
-  props: ['cart', 'displayCart'],
-  components: {
-    Curr
-  },
-  emits: ['deleteItem']
-}
+const props = defineProps(['cart', 'displayCart'])
+const emits = defineEmits(['deleteItem'])
 </script>
 
-<style>>
-
-.dropdown-enter-active,
+<style>
+> .dropdown-enter-active,
 .dropdown-leave-active {
   transition: all 0.5s ease-in-out;
   transform: auto;

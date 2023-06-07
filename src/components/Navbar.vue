@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="container mx-auto ">
+    <div class="container mx-auto">
       <nav class="flex m-2 gap-2">
         <RouterLink to="/" class="hover:bg-slate-200 p-2 rounded-full">ホーム</RouterLink>
         <RouterLink to="/checkout" class="hover:bg-slate-200 p-2 rounded-full">カート</RouterLink>
@@ -27,25 +27,17 @@
   </nav>
 </template>
 
-<script>
+<script setup>
+import { defineEmits, defineProps, ref } from 'vue'
 import Curr from '@/components/Curr.vue'
 import CartDropdown from '@/components/CartDropdown.vue'
 
-export default {
-  data: function () {
-    return {
-      displayCart: false
-    }
-  },
-  components: {
-    Curr,
-    CartDropdown
-  },
-  props: ['cart', 'cartTotal', 'cartQty'],
-  methods: {
-    toggleDisplayCart() {
-      this.displayCart = !this.displayCart
-    }
-  }
+const props = defineProps(['cart', 'cartTotal', 'cartQty'])
+const emits = defineEmits(['deleteItem'])
+
+const displayCart = ref(false)
+
+const toggleDisplayCart = () => {
+  displayCart.value = !displayCart.value
 }
 </script>

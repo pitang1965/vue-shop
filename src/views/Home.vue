@@ -1,32 +1,21 @@
 <template>
   <section class="container mx-auto px-2">
-    <range-selector :products = "filteredProducts" v-model="max" />
-    <product-list :products = "filteredProducts" />
+    <range-selector :products="filteredProducts" v-model="max" />
+    <product-list :products="filteredProducts" />
   </section>
 </template>
 
-<script>
+<script setup>
+import { computed, defineProps, reactive, ref } from 'vue'
 import ProductList from '@/components/ProductList.vue'
 import RangeSelector from '@/components/RangeSelector.vue'
 
-export default {
-  name: 'Home',
+const props = defineProps(['products'])
 
-  data: function () {
-    return {
-      max: 50,
-      cart: []
-    }
-  },
-  components: {
-    ProductList,
-    RangeSelector
-  },
-  props: ['products'],
-  computed: {
-    filteredProducts() {
-      return this.products.filter(item => item.price < Number(this.max))
-    },
-  },
-}
+const max = ref(50)
+const cart = reactive([])
+
+const filteredProducts = computed(() =>
+  props.products.filter(item => item.price < Number(max.value))
+)
 </script>

@@ -9,69 +9,68 @@
   />
 </template>
 
-<script>
+<script setup>
+import { computed, onBeforeMount, reactive, ref } from 'vue'
 import Navbar from '@/components/Navbar.vue'
 
-export default {
-  data: function () {
-    return {
-      cart: [],
-      displayCart: false,
-      products: []
-    }
-  },
-  components: {
-    Navbar
-  },
-  created() {
-    fetch('https://hplussport.com/api/products/order/price')
+const cart = reactive([])
+const products = reactive([])
+const displayCart = ref(false)
+
+const featchProducts = async () => {
+  try {
+    await fetch('https://hplussport.com/api/products/order/price')
       .then(response => response.json())
       .then(data => {
-        this.products = data
+        products.push(...data)
       })
-  },
-  methods: {
-    addItem(product) {
-      let whichProduct
-      const existing = this.cart.filter(function (item, index) {
-        if (item.product.id == Number(product.id)) {
-          whichProduct = index
-          return true
-        } else {
-          return false
-        }
-      })
-
-      if (existing.length) {
-        this.cart[whichProduct].qty++
-      } else {
-        this.cart.push({ product: product, qty: 1 })
-      }
-    },
-    deleteItem: function (id) {
-      console.log('deleteItem!')
-      if (this.cart[id].qty > 1) {
-        this.cart[id].qty--
-      } else {
-        this.cart.splice(id, 1)
-      }
-    }
-  },
-  computed: {
-    cartTotal() {
-      let sum = 0
-      for (let key in this.cart) {
-        sum += this.cart[key].product.price * this.cart[key].qty
-      }
-      return sum
-    },
-    cartQty() {
-      let qty = 0
-      for (let key in this.cart) {
-        qty += this.cart[key].qty
-      }
-      return qty
-    }
+  } catch (error) {
+    console.error(error)
   }
 }
+
+const addItem = product => {
+  let whichProduct
+  const existing = cart.filter(function (item, index) {
+    if (item.product.id == Number(product.id)) {
+      whichProduct = index
+      return true
+    } else {
+      return false
+    }
+  })
+
+  if (existing.length) {
+    cart[whichProduct].qty++
+  } else {
+    cart.push({ product: product, qty: 1 })
+  }
+}
+const deleteItem = id => {
+  if (cart[id].qty > 1) {
+    cart[id].qty--
+  } else {
+    cart.splice(id, 1)
+  }
+}
+
+const cartTotal = computed(() => {
+  let sum = 0
+  for (let key in cart) {
+    sum += cart[key].product.price * cart[key].qty
+  }
+  return sum
+})
+
+const cartQty = computed(() => {
+  let qty = 0
+  for (let key in cart) {
+    qty += cart[key].qty
+  }
+  return qty
+})
+
+onBeforeMount(() => {
+  featchProducts()
+})
 </script>
