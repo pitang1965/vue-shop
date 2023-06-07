@@ -7,7 +7,6 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
 import Product from '@/components/Product.vue'
 
 const props = defineProps(['products'])

@@ -22,7 +22,6 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue'
 import Curr from '@/components/Curr.vue'
 
 const props = defineProps(['item'])

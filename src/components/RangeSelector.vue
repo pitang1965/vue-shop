@@ -14,8 +14,6 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
-
 const props = defineProps(['products', 'modelValue'])
 </script>
 <style></style>

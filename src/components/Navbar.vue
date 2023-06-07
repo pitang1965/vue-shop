@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import { defineEmits, defineProps, ref } from 'vue'
+import { ref } from 'vue'
 import Curr from '@/components/Curr.vue'
 import CartDropdown from '@/components/CartDropdown.vue'
 

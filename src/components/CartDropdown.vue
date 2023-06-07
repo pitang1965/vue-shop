@@ -32,7 +32,6 @@
 </template>
 
 <script setup>
-import { defineEmits, defineProps } from 'vue'
 import Curr from '@/components/Curr.vue'
 
 const props = defineProps(['cart', 'displayCart'])

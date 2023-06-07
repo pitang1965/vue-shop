@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { computed, defineProps, reactive, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import ProductList from '@/components/ProductList.vue'
 import RangeSelector from '@/components/RangeSelector.vue'
 
