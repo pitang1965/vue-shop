@@ -11,9 +11,12 @@
 
 <script setup>
 import { computed, onBeforeMount, reactive, ref } from 'vue'
+import { useStore } from 'vuex'
 import Navbar from '@/components/Navbar.vue'
 
-const cart = reactive([])
+const store = useStore()
+const cart = computed(() => store.state.cart.items)
+
 const products = reactive([])
 const displayCart = ref(false)
 
@@ -30,45 +33,16 @@ const featchProducts = async () => {
 }
 
 const addItem = product => {
-  let whichProduct
-  const existing = cart.filter(function (item, index) {
-    if (item.product.id == Number(product.id)) {
-      whichProduct = index
-      return true
-    } else {
-      return false
-    }
-  })
-
-  if (existing.length) {
-    cart[whichProduct].qty++
-  } else {
-    cart.push({ product: product, qty: 1 })
-  }
+  store.dispatch('cart/addItem', product)
 }
+
 const deleteItem = id => {
-  if (cart[id].qty > 1) {
-    cart[id].qty--
-  } else {
-    cart.splice(id, 1)
-  }
+  store.dispatch('cart/deleteItem', id)
 }
 
-const cartTotal = computed(() => {
-  let sum = 0
-  for (let key in cart) {
-    sum += cart[key].product.price * cart[key].qty
-  }
-  return sum
-})
+const cartTotal = computed(() => store.getters['cart/cartTotal'])
 
-const cartQty = computed(() => {
-  let qty = 0
-  for (let key in cart) {
-    qty += cart[key].qty
-  }
-  return qty
-})
+const cartQty = computed(() => store.getters['cart/cartQuantity'])
 
 onBeforeMount(() => {
   featchProducts()

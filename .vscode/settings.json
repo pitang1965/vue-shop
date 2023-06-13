@@ -9,6 +9,7 @@
     "fontawesome",
     "fortawesome",
     "rushstack",
-    "tailwindcss"
+    "tailwindcss",
+    "vuex"
   ]
 }
