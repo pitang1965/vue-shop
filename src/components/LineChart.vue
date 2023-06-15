@@ -3,6 +3,8 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import { Line } from 'vue-chartjs'
 import {
   Chart as ChartJS,
@@ -17,16 +19,9 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
 
-const chartData = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'Data1',
-      backgroundColor: '#f87979',
-      data: [40, 39, 10, 40, 39, 80, 40]
-    }
-  ]
-}
+const store = useStore()
+
+const chartData = computed(() => store.getters['chart/chartData'])
 
 const chartOptions = {
   responsive: true
