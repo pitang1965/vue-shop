@@ -12,7 +12,7 @@
               {{ item.qty }}
             </span>
             {{ item.product.name }}
-            <b> <curr :amt="item.qty * Number(item.product.price)"></curr></b>
+            <b> <curr :amt="item.qty * Number(item.product.price)" /></b>
             <button
               @click.stop="deleteItem(item.product.id)"
               class="bg-[#ff0000] hover:bg-[#ee0000] text-white font-bold w-5 h-5 ml-2 rounded"
@@ -45,7 +45,6 @@ const cart = computed(() => store.getters['cart/items'])
 const deleteItem = id => {
   store.dispatch('cart/deleteItem', id)
 }
-
 </script>
 
 <style>

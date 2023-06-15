@@ -6,7 +6,7 @@
     <table v-if="cart.length > 0" class="table-auto w-full text-sm mb-8">
       <caption class="text-right h3 mb-4">
         <b>合計:</b>
-        <curr :amt="Number(cartTotal)"></curr>
+        <curr :amt="Number(cartTotal)" />
       </caption>
       <thead>
         <tr class="border-b-2 border-slate-200">
@@ -41,8 +41,8 @@
           </td>
           <td scope="row">{{ item.product.name }}</td>
           <td class="text-center">{{ item.qty }}</td>
-          <td class="text-right"><curr :amt="Number(item.product.price)"></curr></td>
-          <td class="text-right"><curr :amt="item.qty * Number(item.product.price)"></curr></td>
+          <td class="text-right"><curr :amt="Number(item.product.price)" /></td>
+          <td class="text-right"><curr :amt="item.qty * Number(item.product.price)" /></td>
         </tr>
       </tbody>
     </table>

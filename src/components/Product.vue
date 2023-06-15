@@ -14,9 +14,7 @@
     <div class="col-span-6 my-auto">
       <h3 class="text-2xl text-purple-500">{{ item.name }}</h3>
       <p>{{ item.description }}</p>
-      <div class="text-xl float-right">
-        <span class="label"></span><curr :amt="item.price"></curr>
-      </div>
+      <div class="text-xl float-right"><span class="label"></span><curr :amt="item.price" /></div>
     </div>
   </div>
 </template>
