@@ -3,7 +3,7 @@
     <transition name="dropdown">
       <div
         v-if="displayCart"
-        class="flex flex-col gap-1 py-2 mt-2 mr-5 bg-white shadow-xl rounded-md w-auto overflow-hidden"
+        class="flex flex-col gap-1 p-2 mt-2 mr-5 bg-white shadow-xl rounded-md w-auto overflow-hidden"
         aria-labelledby="cartDropdown"
       >
         <div v-for="(item, index) in cart" :key="index">
