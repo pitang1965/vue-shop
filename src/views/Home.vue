@@ -6,14 +6,13 @@
 </template>
 
 <script setup>
-import { computed, reactive, ref } from 'vue'
+import { computed, ref } from 'vue'
 import ProductList from '@/components/ProductList.vue'
 import RangeSelector from '@/components/RangeSelector.vue'
 
 const props = defineProps(['products'])
 
 const max = ref(50)
-const cart = reactive([])
 
 const filteredProducts = computed(() =>
   props.products.filter(item => item.price < Number(max.value))

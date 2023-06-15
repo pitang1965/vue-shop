@@ -14,7 +14,7 @@
             {{ item.product.name }}
             <b> <curr :amt="item.qty * Number(item.product.price)"></curr></b>
             <button
-              @click.stop="$parent.$emit('deleteItem', index)"
+              @click.stop="deleteItem(item.product.id)"
               class="bg-[#ff0000] hover:bg-[#ee0000] text-white font-bold w-5 h-5 ml-2 rounded"
             >
               -
@@ -32,10 +32,20 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import Curr from '@/components/Curr.vue'
 
-const props = defineProps(['cart', 'displayCart'])
-const emits = defineEmits(['deleteItem'])
+const props = defineProps(['displayCart'])
+
+const store = useStore()
+
+const cart = computed(() => store.getters['cart/items'])
+
+const deleteItem = id => {
+  store.dispatch('cart/deleteItem', id)
+}
+
 </script>
 
 <style>

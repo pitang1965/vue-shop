@@ -4,7 +4,9 @@ const state = () => ({
 })
 
 const getters = {
+  items: (state, getters) => state.items,
   cartTotal: (state, getters) => {
+    console.log(state.items)
     let sum = 0
     for (let key in state.items) {
       sum += state.items[key].product.price * state.items[key].qty
@@ -23,40 +25,52 @@ const getters = {
 // actions
 const actions = {
   addItem({ state, commit }, product) {
-    let whichProduct
-    const existing = state.items.filter(function (item, index) {
-      if (item.product.id == Number(product.id)) {
-        whichProduct = index
+    console.log('product.id: ', product.id)
+    let productId
+    const existing = state.items.filter(function (item) {
+      console.log('item: ', item)
+      if (Number(item.product.id) === Number(product.id)) {
+        productId = item.product.id
+        console.log('return true')
         return true
       } else {
+        console.log('return false')
         return false
       }
     })
 
     if (existing.length) {
-      state.items[whichProduct].qty++
+      commit('INCREMENT_ITEM_QUANTITY', productId)
     } else {
-      state.items.push({ product: product, qty: 1 })
+      commit('ADD_ITEM', { product: product, qty: 1 })
     }
   },
 
   deleteItem({ state, commit }, id) {
-    if (state.items[id].qty > 1) {
-      commit('decrementItemQuantity', id)
+    const item = state.items.find(item => Number(item.product.id) === Number(id))
+    if (item.qty > 1) {
+      commit('DECREMENT_ITEM_QUANTITY', id)
     } else {
-      commit('removeItem', id)
+      commit('REMOVE_ITEM', id)
     }
   }
 }
 
 // mutations
 const mutations = {
-  decrementItemQuantity(state, id) {
-    const item = state.items.find(item => item.id === id)
+  ADD_ITEM(state, item) {
+    state.items.push(item)
+  },
+  DECREMENT_ITEM_QUANTITY(state, id) {
+    const item = state.items.find(item => Number(item.product.id) === Number(id))
     item.qty--
   },
-  removeItem(state, id) {
-    state.items.splice(id, 1)
+  INCREMENT_ITEM_QUANTITY(state, id) {
+    const item = state.items.find(item => Number(item.product.id) === Number(id))
+    item.qty++
+  },
+  REMOVE_ITEM(state, id) {
+    state.items = state.items.filter(item => item.product.id !== id)
   }
 }
 

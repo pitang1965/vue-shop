@@ -22,18 +22,21 @@
           {{ cartQty }}
         </button>
       </div>
-      <cart-dropdown :cart="cart" :displayCart="displayCart" class="absolute top-8 self-end" />
+      <cart-dropdown :displayCart="displayCart" class="absolute top-8 self-end" />
     </div>
   </nav>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useStore } from 'vuex'
 import Curr from '@/components/Curr.vue'
 import CartDropdown from '@/components/CartDropdown.vue'
 
-const props = defineProps(['cart', 'cartTotal', 'cartQty'])
-const emits = defineEmits(['deleteItem'])
+const store = useStore()
+const cart = computed(() => store.getters['cart/items'])
+const cartTotal = computed(() => store.getters['cart/cartTotal'])
+const cartQty = computed(() => store.getters['cart/cartQuantity'])
 
 const displayCart = ref(false)
 

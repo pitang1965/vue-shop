@@ -26,13 +26,13 @@
           <td class="p-2">
             <div class="flex" role="group" aria-label="Basic example">
               <button
-                @click="$emit('addItem', item.product)"
+                @click="addItem(item.product)"
                 class="px-2 py-2 bg-slate-200 text-black hover:bg-slate-400 border-2 border-slate-300 rounded-l-lg"
               >
                 +
               </button>
               <button
-                @click="$emit('deleteItem', index)"
+                @click="deleteItem(item.product.id)"
                 class="px-2 py-2 bg-slate-200 text-black hover:bg-slate-400 border-2 border-slate-300 rounded-r-lg"
               >
                 -
@@ -55,10 +55,22 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import Curr from '@/components/Curr.vue'
 
-const props = defineProps(['cart', 'cartTotal'])
-const emits = defineEmits(['addItem', 'deleteItem'])
+const store = useStore()
+
+const cart = computed(() => store.getters['cart/items'])
+const cartTotal = computed(() => store.getters['cart/cartTotal'])
+
+const addItem = product => {
+  store.dispatch('cart/addItem', product)
+}
+
+const deleteItem = id => {
+  store.dispatch('cart/deleteItem', id)
+}
 </script>
 
 <style>
