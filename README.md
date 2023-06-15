@@ -1,11 +1,15 @@
 # vue-shop
 
 Vue 3の学習のため、LinkedIn Learningの教材で紹介されていた[こちら](https://github.com/LinkedInLearning/vue3-esst-2834032)を追加学習のために変更したもの。
+実際に使用することはできないはりぼてECショップです。
 
 * Bootstrapを廃止しTailwind CSSに変更
 * 日本語化
 * npmからpnpmに変更
 * 色等見た目を少し変更
+* `<script setup>`を導入
+* Vuexを導入し、カート機能に利用（プロダクトは導入保留の中途半端状態であえて停止）
+* defineProps()を導入
 
 ## Recommended IDE Setup
 
