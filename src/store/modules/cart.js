@@ -6,7 +6,6 @@ const state = () => ({
 const getters = {
   items: (state, getters) => state.items,
   cartTotal: (state, getters) => {
-    console.log(state.items)
     let sum = 0
     for (let key in state.items) {
       sum += state.items[key].product.price * state.items[key].qty
@@ -25,16 +24,12 @@ const getters = {
 // actions
 const actions = {
   addItem({ state, commit }, product) {
-    console.log('product.id: ', product.id)
     let productId
     const existing = state.items.filter(function (item) {
-      console.log('item: ', item)
       if (Number(item.product.id) === Number(product.id)) {
         productId = item.product.id
-        console.log('return true')
         return true
       } else {
-        console.log('return false')
         return false
       }
     })
