@@ -8,13 +8,11 @@
         <el-radio-button label="年" />
       </el-radio-group>
     </div>
-    <BarChart />
     <LineChart />
   </div>
 </template>
 
 <script setup>
-import BarChart from '@/components/BarChart.vue'
 import LineChart from '@/components/LineChart.vue'
 import { ref } from 'vue'
 const radio = ref('週')
