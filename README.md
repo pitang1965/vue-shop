@@ -3,13 +3,14 @@
 Vue 3の学習のため、LinkedIn Learningの教材で紹介されていた[こちら](https://github.com/LinkedInLearning/vue3-esst-2834032)を追加学習のために変更したもの。
 実際に使用することはできないはりぼてECショップです。
 
-* Bootstrapを廃止しTailwind CSSに変更
+* Bootstrapを廃止し[Tailwind CSS](https://tailwindcss.com/)に変更
 * 日本語化
-* npmからpnpmに変更
+* npmから[pnpm](https://pnpm.io/)に変更
 * 色等見た目を少し変更
-* `<script setup>`を導入
-* Vuexを導入し、カート機能に利用（プロダクトは導入保留の中途半端状態であえて停止）
-* defineProps()を導入
+* [`<script setup>`](https://vuejs.org/api/sfc-script-setup.html#defineprops-defineemits)を導入
+* [Vuex](https://vuex.vuejs.org/ja/)を導入し、カート機能に利用（プロダクトは導入保留の中途半端状態であえて停止）
+* [defineProps](<https://vuejs.org/api/sfc-script-setup.html#defineprops-defineemits)を導入>
+* [vue-chartjs](https://vue-chartjs.org/)を追加
 
 ## Recommended IDE Setup
 
