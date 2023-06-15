@@ -4,6 +4,7 @@
       <nav class="flex m-2 gap-2">
         <RouterLink to="/" class="hover:bg-slate-200 p-2 rounded-full">ホーム</RouterLink>
         <RouterLink to="/checkout" class="hover:bg-slate-200 p-2 rounded-full">カート</RouterLink>
+        <RouterLink to="/chart" class="hover:bg-slate-200 p-2 rounded-full">チャート</RouterLink>
       </nav>
     </div>
   </header>
