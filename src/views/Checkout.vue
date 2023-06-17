@@ -19,7 +19,7 @@
       </thead>
       <tbody>
         <tr
-          v-for="(item, index) in cart"
+          v-for="item in cart"
           :key="item.product.id"
           class="border-b-2 border-slate-200 hover:bg-slate-300"
         >
