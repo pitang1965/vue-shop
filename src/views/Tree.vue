@@ -1,7 +1,12 @@
 <template>
   <div class="container mx-auto px-2">
     <h1 class="font-bold">ツリー</h1>
-    <el-tree-v2 :data="data" :props="props" :height="208" />
+    <el-tree-v2 :data="data" :props="props" :height="208">
+      <template #default="{ node }">
+        <font-awesome-icon v-if="!node.isLeaf" icon="fa-folder" class="pr-2"/>
+        <span>{{ node.label }}</span>
+      </template>
+    </el-tree-v2>
   </div>
 </template>
 
