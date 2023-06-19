@@ -19,7 +19,7 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <fa icon="shopping-cart" />
+            <font-awesome-icon icon="fa-cart-shopping" />
             {{ cartQty }}
           </button>
         </div>
