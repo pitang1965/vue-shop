@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto px-2">
+  <section class="container mx-auto px-2" @click="onClick">
     <range-selector :products="filteredProducts" v-model="max" />
     <product-list :products="filteredProducts" />
   </section>
@@ -20,6 +20,10 @@ const store = useStore()
 const filteredProducts = computed(() =>
   props.products.filter(item => item.price < Number(max.value))
 )
+
+const onClick = () => {
+  store.dispatch('cart/hideCart')
+}
 
 const onEscapePress = event => {
   if (event.key == 'Escape') {

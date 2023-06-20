@@ -2,7 +2,7 @@
   <div class="grid grid-cols-12">
     <div class="col-span-2 m-auto">
       <button
-        @click="addItem(props.item)"
+        @click.stop="addItem(props.item)"
         class="bg-purple-500 hover:bg-purple-600 text-white text-sm font-bold w-8 h-8 rounded"
       >
         +
