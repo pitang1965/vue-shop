@@ -30,19 +30,19 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useStore } from 'vuex'
 import Curr from '@/components/Curr.vue'
 import CartDropdown from '@/components/CartDropdown.vue'
 
 const store = useStore()
+
 const cart = computed(() => store.getters['cart/items'])
 const cartTotal = computed(() => store.getters['cart/cartTotal'])
 const cartQty = computed(() => store.getters['cart/cartQuantity'])
-
-const displayCart = ref(false)
+const displayCart = computed(() => store.getters['cart/displayCart'])
 
 const toggleDisplayCart = () => {
-  displayCart.value = !displayCart.value
+  store.dispatch('cart/toggleDisplayCart')
 }
 </script>

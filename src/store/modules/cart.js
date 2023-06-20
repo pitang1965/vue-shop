@@ -1,6 +1,7 @@
 // initial state
 const state = () => ({
-  items: []
+  items: [],
+  displayCart: false
 })
 
 const getters = {
@@ -18,7 +19,8 @@ const getters = {
       qty += state.items[key].qty
     }
     return qty
-  }
+  },
+  displayCart: (state, getters) => state.displayCart
 }
 
 // actions
@@ -48,6 +50,14 @@ const actions = {
     } else {
       commit('REMOVE_ITEM', id)
     }
+  },
+
+  toggleDisplayCart({ state, commit }) {
+    commit('DISPLAY_CART', !state.displayCart)
+  },
+
+  hideCart({ state, commit }) {
+    commit('DISPLAY_CART', false)
   }
 }
 
@@ -66,7 +76,10 @@ const mutations = {
   },
   REMOVE_ITEM(state, id) {
     state.items = state.items.filter(item => item.product.id !== id)
-  }
+  },
+  DISPLAY_CART(state, value) {
+    state.displayCart = value
+  } 
 }
 
 export default {

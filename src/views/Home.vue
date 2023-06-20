@@ -6,15 +6,32 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import ProductList from '@/components/ProductList.vue'
 import RangeSelector from '@/components/RangeSelector.vue'
+import { useStore } from 'vuex'
 
 const props = defineProps(['products'])
 
 const max = ref(50)
 
+const store = useStore()
+
 const filteredProducts = computed(() =>
   props.products.filter(item => item.price < Number(max.value))
 )
+
+const onEscapePress = event => {
+  if (event.key == 'Escape') {
+    store.dispatch('cart/hideCart')
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', onEscapePress)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', onEscapePress)
+})
 </script>
