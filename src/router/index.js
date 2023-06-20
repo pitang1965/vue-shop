@@ -21,7 +21,7 @@ const router = createRouter({
     },
     {
       path: '/tree',
-      name: 'Tree',
+      name: 'tree',
       component: () => import('../views/Tree.vue')
     }
   ]
