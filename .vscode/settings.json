@@ -1,5 +1,9 @@
 {
-  "eslint.validate": ["vue", "html", "javascript"],
+  "eslint.validate": [
+    "vue",
+    "html",
+    "javascript"
+  ],
   "editor.formatOnSave": true,
   "vetur.validation.template": true,
   "editor.codeActionsOnSave": {
@@ -12,6 +16,7 @@
     "nightwatch",
     "rushstack",
     "tailwindcss",
+    "Vetur",
     "vuex"
   ]
 }
