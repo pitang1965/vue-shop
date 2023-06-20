@@ -8,7 +8,7 @@
         <RouterLink to="/tree" class="hover:bg-slate-200 p-2 rounded-full">ツリー</RouterLink>
       </nav>
     </header>
-    <nav class="top-0">
+    <nav v-show="isHome" class="top-0">
       <div v-if="cart.length" class="flex flex-col text-sm p-2">
         <div class="flex flex-row justify-end mr-5">
           <span class="font-bold bg-white"><curr :amt="cartTotal" /></span>
@@ -34,8 +34,10 @@ import { computed } from 'vue'
 import { useStore } from 'vuex'
 import Curr from '@/components/Curr.vue'
 import CartDropdown from '@/components/CartDropdown.vue'
+import useIsHome from '@/hooks/useIsHome'
 
 const store = useStore()
+const { isHome } = useIsHome()
 
 const cart = computed(() => store.getters['cart/items'])
 const cartTotal = computed(() => store.getters['cart/cartTotal'])
